@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6FDC48D-7D88-41B2-B34F-848281995FED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Slalom</RootNamespace>
+    <AssemblyName>Slalom</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>menuPenguin.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Animations.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\skiis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\straight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\left.png" />
+    <Resource Include="images\gamePlay\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\redGate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\blueGate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="animation\seagull\1.png" />
+    <Resource Include="animation\seagull\2.png" />
+    <Resource Include="animation\seagull\3.png" />
+    <Resource Include="animation\seagull\4.png" />
+    <Resource Include="animation\seagull\5.png" />
+    <Resource Include="animation\seagull\6.png" />
+    <Resource Include="animation\seagull\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menuPenguin.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\leftNet.jpg" />
+    <Resource Include="images\gamePlay\rightNet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\colorScreen\b.png" />
+    <Resource Include="images\colorScreen\g.png" />
+    <Resource Include="images\colorScreen\backgroundz.jpg" />
+    <Resource Include="images\colorScreen\penguinBrush.png" />
+    <Resource Include="images\colorScreen\r.png" />
+    <Resource Include="images\colorScreen\text.png" />
+    <Resource Include="images\colorScreen\tick.png" />
+    <Resource Include="images\colorScreen\y.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\snow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\lodge.png" />
+    <Resource Include="images\gamePlay\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\fence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\modeScreen\giantSlalom.png" />
+    <Resource Include="images\modeScreen\skiPenguin.png" />
+    <Resource Include="images\modeScreen\slalom.png" />
+    <Resource Include="images\modeScreen\text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="animation\rabbit\1.png" />
+    <Resource Include="animation\rabbit\10.png" />
+    <Resource Include="animation\rabbit\11.png" />
+    <Resource Include="animation\rabbit\12.png" />
+    <Resource Include="animation\rabbit\13.png" />
+    <Resource Include="animation\rabbit\14.png" />
+    <Resource Include="animation\rabbit\15.png" />
+    <Resource Include="animation\rabbit\16.png" />
+    <Resource Include="animation\rabbit\17.png" />
+    <Resource Include="animation\rabbit\18.png" />
+    <Resource Include="animation\rabbit\19.png" />
+    <Resource Include="animation\rabbit\2.png" />
+    <Resource Include="animation\rabbit\20.png" />
+    <Resource Include="animation\rabbit\21.png" />
+    <Resource Include="animation\rabbit\22.png" />
+    <Resource Include="animation\rabbit\23.png" />
+    <Resource Include="animation\rabbit\24.png" />
+    <Resource Include="animation\rabbit\25.png" />
+    <Resource Include="animation\rabbit\3.png" />
+    <Resource Include="animation\rabbit\4.png" />
+    <Resource Include="animation\rabbit\5.png" />
+    <Resource Include="animation\rabbit\6.png" />
+    <Resource Include="animation\rabbit\7.png" />
+    <Resource Include="animation\rabbit\8.png" />
+    <Resource Include="animation\rabbit\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\modeScreen\giantSlalomText.png" />
+    <Resource Include="images\modeScreen\slalomText.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\finish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\fair.png" />
+    <Resource Include="images\gamePlay\good.png" />
+    <Resource Include="images\gamePlay\perfect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\mainMenu\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="animation\confetti\1.png" />
+    <Resource Include="animation\confetti\10.png" />
+    <Resource Include="animation\confetti\11.png" />
+    <Resource Include="animation\confetti\12.png" />
+    <Resource Include="animation\confetti\13.png" />
+    <Resource Include="animation\confetti\14.png" />
+    <Resource Include="animation\confetti\15.png" />
+    <Resource Include="animation\confetti\16.png" />
+    <Resource Include="animation\confetti\17.png" />
+    <Resource Include="animation\confetti\18.png" />
+    <Resource Include="animation\confetti\19.png" />
+    <Resource Include="animation\confetti\2.png" />
+    <Resource Include="animation\confetti\20.png" />
+    <Resource Include="animation\confetti\21.png" />
+    <Resource Include="animation\confetti\22.png" />
+    <Resource Include="animation\confetti\23.png" />
+    <Resource Include="animation\confetti\24.png" />
+    <Resource Include="animation\confetti\25.png" />
+    <Resource Include="animation\confetti\26.png" />
+    <Resource Include="animation\confetti\27.png" />
+    <Resource Include="animation\confetti\28.png" />
+    <Resource Include="animation\confetti\29.png" />
+    <Resource Include="animation\confetti\3.png" />
+    <Resource Include="animation\confetti\30.png" />
+    <Resource Include="animation\confetti\31.png" />
+    <Resource Include="animation\confetti\32.png" />
+    <Resource Include="animation\confetti\33.png" />
+    <Resource Include="animation\confetti\34.png" />
+    <Resource Include="animation\confetti\35.png" />
+    <Resource Include="animation\confetti\36.png" />
+    <Resource Include="animation\confetti\37.png" />
+    <Resource Include="animation\confetti\38.png" />
+    <Resource Include="animation\confetti\39.png" />
+    <Resource Include="animation\confetti\4.png" />
+    <Resource Include="animation\confetti\40.png" />
+    <Resource Include="animation\confetti\41.png" />
+    <Resource Include="animation\confetti\42.png" />
+    <Resource Include="animation\confetti\43.png" />
+    <Resource Include="animation\confetti\44.png" />
+    <Resource Include="animation\confetti\45.png" />
+    <Resource Include="animation\confetti\46.png" />
+    <Resource Include="animation\confetti\47.png" />
+    <Resource Include="animation\confetti\48.png" />
+    <Resource Include="animation\confetti\49.png" />
+    <Resource Include="animation\confetti\5.png" />
+    <Resource Include="animation\confetti\50.png" />
+    <Resource Include="animation\confetti\51.png" />
+    <Resource Include="animation\confetti\52.png" />
+    <Resource Include="animation\confetti\53.png" />
+    <Resource Include="animation\confetti\54.png" />
+    <Resource Include="animation\confetti\55.png" />
+    <Resource Include="animation\confetti\56.png" />
+    <Resource Include="animation\confetti\57.png" />
+    <Resource Include="animation\confetti\58.png" />
+    <Resource Include="animation\confetti\59.png" />
+    <Resource Include="animation\confetti\6.png" />
+    <Resource Include="animation\confetti\60.png" />
+    <Resource Include="animation\confetti\61.png" />
+    <Resource Include="animation\confetti\62.png" />
+    <Resource Include="animation\confetti\63.png" />
+    <Resource Include="animation\confetti\64.png" />
+    <Resource Include="animation\confetti\7.png" />
+    <Resource Include="animation\confetti\8.png" />
+    <Resource Include="animation\confetti\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="animation\trafficLight\1.png" />
+    <Resource Include="animation\trafficLight\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\miss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="animation\trafficLight\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="animation\trafficLight\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\raceStart.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\miss.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\fair.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\perfect.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\raceEnd.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\rabbitRun.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\seagullFly.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\colorScreen\blueSkis.png" />
+    <Resource Include="images\colorScreen\greenSkis.png" />
+    <Resource Include="images\colorScreen\redSkis.png" />
+    <Resource Include="images\colorScreen\yellowSkis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\turn.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\scoreCounter.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\countEnd.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\totalScore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\penguinIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\flags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\good.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\menuMusic.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\sideTreeline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\back.mp3" />
+    <EmbeddedResource Include="sound\option.mp3" />
+    <EmbeddedResource Include="sound\setColor.mp3" />
+    <EmbeddedResource Include="sound\setMode.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sound\wind.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\colorScreen\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\helpScreen\controls.png" />
+    <Resource Include="images\helpScreen\gameModes.png" />
+    <Resource Include="images\helpScreen\help.png" />
+    <Resource Include="images\helpScreen\left.png" />
+    <Resource Include="images\helpScreen\right.png" />
+    <Resource Include="images\helpScreen\rules.png" />
+    <Resource Include="images\helpScreen\space.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gamePlay\topTreeline.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

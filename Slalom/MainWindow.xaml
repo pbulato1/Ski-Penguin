@@ -1,0 +1,209 @@
+﻿<Window x:Class="Slalom.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Slalom"
+        mc:Ignorable="d"
+        Title="Ski Penguin" Height="750" Width="980" FocusManager.FocusedElement="{Binding ElementName=myCanvas}"
+        WindowStartupLocation="Manual"
+        Left="0" Top="0">
+    <Canvas Name="myCanvas" Focusable="true" KeyDown="myCanvas_KeyDown" KeyUp="myCanvas_KeyUp">
+
+        <!-- Menu-->
+        <Rectangle Name="background" Height="700" Width="970"></Rectangle>
+
+        <Rectangle Name="accuracy" Height="65" Width="170" Canvas.Left="600" Canvas.Top="100" ></Rectangle>
+        <Button Name="playButton" Canvas.Top="225" Canvas.Left="375" Click="play" Height="65" Width="257" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="PLAY" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Cambria"  FontSize="20"></TextBlock>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.1" />
+                    <GradientStop Color="OrangeRed" Offset="0.4"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="helpButton" Canvas.Top="325" Canvas.Left="375" Click="help" Height="65" Width="257" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="HELP"  FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Cambria"  FontSize="20"></TextBlock>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.1" />
+                    <GradientStop Color="OrangeRed" Offset="0.4"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="quitButton" Canvas.Top="425" Canvas.Left="375" Click="quit" Height="65" Width="257" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="QUIT"  FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Cambria"  FontSize="20"></TextBlock>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.1" />
+                    <GradientStop Color="OrangeRed" Offset="0.4"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+     
+        <!-- Gameplay-->
+        <Border x:Name="progress" Visibility="Collapsed" Canvas.Left="100" Canvas.Top="0" CornerRadius="20" Margin="10,15,0,0" Height="40" Width="750">
+            <Border.Background >
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="LightSkyBlue" Offset="0.1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border x:Name="whiteBar" Visibility="Collapsed" Canvas.Left="103" Canvas.Top="3" CornerRadius="20" Margin="10,15,0,0" Height="35" Width="50">
+            <Border.Background >
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Image Name="penguinIcon" Visibility="Collapsed" Source="images/gamePlay/penguinIcon.png" Width="40" Height="35" Canvas.Top="15" Canvas.Left="120" VerticalAlignment="Center" HorizontalAlignment="Stretch"></Image>
+        <Image Name="flags" Visibility="Collapsed" Source="images/gamePlay/flags.png" Width="60" Height="60" Canvas.Left="790" Canvas.Top="5"></Image>
+        <Image Name="pressSpace" Visibility="Collapsed" Source="images/gamePlay/space.png" Width="180" Height="80" Canvas.Top="145" Canvas.Left="395"></Image>
+        <Label Name="spaceButton" Visibility="Collapsed" FontSize="35" FontWeight="Regular" Content="Press         to start..." Canvas.Left="357" Canvas.Top="152"></Label>
+        <Image Name="arrow" Visibility="Collapsed" Source="images/gamePlay/arrow.png" Width="80" Height="80" Canvas.Top="100" Canvas.Left="50"></Image>
+        <Rectangle Name="topTreeline" Visibility="Collapsed" Width="980" Height="200" Canvas.Top="-25" Canvas.Left="0"></Rectangle>
+        <Rectangle Name="fence" Visibility="Collapsed" Width="805" Height="50" Canvas.Top="100" Canvas.Left="80"></Rectangle>
+        <Image Name="lodge" Visibility="Collapsed" Width="250" Height="250" Canvas.Left="360" Canvas.Top="-60" Source="images/gamePlay/lodge.png"></Image>
+        <Rectangle Name="leftNet1" Visibility="Collapsed" Height="750" Width="20" Canvas.Left="70" Canvas.Top="105" ></Rectangle>
+        <Rectangle Name="leftNet2" Visibility="Collapsed" Height="750" Width="20" Canvas.Left="70" Canvas.Top="755" ></Rectangle>
+        <Rectangle Name="rightNet1" Visibility="Collapsed" Height="750" Width="20" Canvas.Left="880" Canvas.Top="105" ></Rectangle>
+        <Rectangle Name="rightNet2" Visibility="Collapsed" Height="750" Width="20" Canvas.Left="880" Canvas.Top="755" ></Rectangle>
+        <Rectangle Name="leftTree1" Visibility="Collapsed" Height="750" Width="180" Canvas.Top="65" Canvas.Left="-55" ></Rectangle>
+        <Rectangle Name="leftTree2" Visibility="Collapsed" Height="750" Width="180" Canvas.Top="755" Canvas.Left="-55" ></Rectangle>
+        <Rectangle Name="rightTree1" Visibility="Collapsed" Height="750" Width="180" Canvas.Top="65" Canvas.Left="865" ></Rectangle>
+        <Rectangle Name="rightTree2" Visibility="Collapsed" Height="750" Width="180" Canvas.Top="755" Canvas.Left="865" ></Rectangle>
+
+        <Rectangle Name="redGate" Visibility="Collapsed" Width="100" Height="115" Canvas.Left="400" Canvas.Top="750" ></Rectangle>
+        <Rectangle Name="blueGate" Visibility="Collapsed" Width="100" Height="115"  Canvas.Left="210" Canvas.Top="1120" ></Rectangle>
+
+        <Rectangle Name="skis" Visibility="Collapsed" Width="20" Height="35" Canvas.Left="475" Canvas.Top="140" RenderTransformOrigin="1,.5"></Rectangle>
+        <Rectangle Name="penguin" Visibility="Collapsed" Width="55" Height="75" Canvas.Left="460" Canvas.Top="70"></Rectangle>
+
+        <Image Name="finish" Visibility="Collapsed" Width="250" Height="250" Source="images/gamePlay/finish.png" Canvas.Left="370" Canvas.Top="700"></Image>
+        <Label Name="points" Visibility="Collapsed" FontSize="40" Canvas.Left="610" Canvas.Top="181" FontWeight="Bold" Foreground="ForestGreen"></Label>
+        <!--- colorScreen-->
+        <Image Name="chooseColor" Visibility="Collapsed" Width="440" Height="140" Source="images/colorScreen/text.png" Canvas.Top="100" Canvas.Left="240"></Image>
+        <Image Name="penguinBrush" Visibility="Collapsed" Source="images/colorScreen/penguinBrush.png" Width="300" Height="300" Canvas.Top="400" Canvas.Left="660"></Image>
+
+        <Button Name ="redButton" Visibility="Collapsed" Canvas.Top="280" Canvas.Left="600" Click="red" Width="100" Height="100">
+            <Rectangle Name="redImage" Width="90" Height="90"  />
+        </Button>
+
+        <Button Name ="blueButton" Visibility="Collapsed"  Canvas.Top="280" Canvas.Left="450" Click="blue" Width="100" Height="100">
+            <Rectangle Name="blueImage" Width="90" Height="90"  />
+
+        </Button>
+        <Button Name ="yellowButton" Visibility="Collapsed" Canvas.Top="280" Canvas.Left="300" Click="yellow" Width="100" Height="100">
+            <Rectangle Name="yellowImage" Width="90" Height="90"  />
+        </Button>
+
+        <Button Name ="greenButton" Visibility="Collapsed" Canvas.Top="280" Canvas.Left="150" Click="green" Width="100" Height="100">
+            <Rectangle Name="greenImage" Width="90" Height="90"  />
+        </Button>
+
+        <Rectangle Name="colorSkis" Visibility="Collapsed" Width="70" Height="350" Canvas.Top="450" Canvas.Left="600"></Rectangle>
+
+        <Button x:Name="continueButton" Visibility="Collapsed" Canvas.Top="575" Canvas.Left="315" Click="proceed" Height="55" Width="237" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="CONTINUE" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Cambria"  FontSize="20"></TextBlock>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.1" />
+                    <GradientStop Color="Gray" Offset="0.4"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+
+        <Button x:Name="backButton" Visibility="Collapsed" Canvas.Top="105" Canvas.Left="50" Click="back" Height="55" Width="137" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="BACK" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Cambria"  FontSize="20"></TextBlock>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.1" />
+                    <GradientStop Color="Gray" Offset="0.4"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+
+        <!-- Game mode screen  -->
+        <Image Name="chooseMode" Visibility="Collapsed" Width="440" Height="140" Source="images/modeScreen/text.png" Canvas.Top="100" Canvas.Left="240"></Image>
+        <Image Name="penguinSki" Visibility="Collapsed" Source="images/modeScreen/skiPenguin.png" Width="300" Height="300" Canvas.Top="400" Canvas.Left="660"></Image>
+
+        <Image Name="slalomText" Visibility="Collapsed"  Width="160" Height="40" Canvas.Top="245" Canvas.Left="195" Source="images/modeScreen/slalomText.png"></Image>
+        <Button Name ="slalomButton" Visibility="Collapsed"  Canvas.Top="290" Canvas.Left="150" Click="sl" Width="250" Height="250">
+            <Rectangle Name="slalom" Width="240" Height="240"  />
+        </Button>
+
+        <Image Name="giantSlalomText" Visibility="Collapsed" Width="250" Height="120" Canvas.Top="205" Canvas.Left="450" Source="images/modeScreen/giantSlalomText.png"></Image>
+        <Button Name ="giantSlalomButton" Visibility="Collapsed"  Canvas.Top="290" Canvas.Left="450" Click="gs" Width="250" Height="250">
+            <Rectangle Name="giantSlalom" Width="240" Height="240"  />
+        </Button>
+
+        <Image Name="tick" Source="images/colorScreen/tick.png" Width="80" Height="80" Canvas.Top="282" Canvas.Left="315" Visibility="Collapsed"></Image>
+
+        <!-- Game over-->
+        <Image Name="totalScoreImage" Visibility="Collapsed" Canvas.Left="240" Canvas.Top="70" Height="120" Width="500" Source="images/gamePlay/totalScore.png"></Image>
+        <Label Name="totalScoreNum" Visibility="Collapsed" Content="61" Height="100" Width="300" FontSize="65" Canvas.Left="750" Canvas.Top="80" Foreground="Purple" FontWeight="Bold" ></Label>
+        <Label Name="gatesClearedImage" Visibility="Collapsed" Canvas.Top="185" Canvas.Left="300" Width="450" Height="100" FontFamily="cambria" Content="GATES CLEARED:     /50  " FontSize="40" FontWeight="SemiBold"></Label>
+        <Image Name="fairImage"  Visibility="Collapsed" Canvas.Top="270" Canvas.Left="340" Width="300" Height="50" Source="images/gamePlay/fair.png"></Image>
+        <TextBlock Name="fairNum" Visibility="Collapsed" Canvas.Top="265" Canvas.Left="310" Text="" FontSize="40" ></TextBlock>
+        <Image Name="goodImage" Visibility="Collapsed" Canvas.Top="350" Canvas.Left="340" Width="300" Height="50" Source="images/gamePlay/good.png"></Image>
+        <TextBlock Name="goodNum" Visibility="Collapsed" Canvas.Top="345" Canvas.Left="310" Text="" FontSize="40" ></TextBlock>
+        <Image Name="perfectImage" Visibility="Collapsed" Canvas.Top="430" Canvas.Left="395" Width="300" Height="50" Source="images/gamePlay/perfect.png"></Image>
+        <TextBlock Name="perfectNum" Visibility="Collapsed" Canvas.Top="425" Canvas.Left="310" Text="" FontSize="40" ></TextBlock>
+
+        <Button x:Name="restartButton" Visibility="Collapsed" Canvas.Top="580" Canvas.Left="432" Click="restart" Height="65" Width="125" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="RESTART" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Cambria"  FontSize="18"></TextBlock>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="LightGray" Offset="0.1" />
+                    <GradientStop Color="LightBlue" Offset="0.4"/>
+                    <GradientStop Color="LightGray" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="menuButton" Visibility="Collapsed" Canvas.Top="10" Canvas.Left="100" Click="menu" Height="45" Width="125" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="MAIN MENU" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Cambria"  FontSize="15"></TextBlock>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.1" />
+                    <GradientStop Color="OrangeRed" Offset="0.4"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!-- Help Screen-->
+        <Image Name="helpTitle" Visibility="Collapsed" Source="images/helpScreen/help.png" Width="200" Canvas.Top="110" Canvas.Left="380" ></Image>
+        <Image Name="helpRules" Visibility="Collapsed" Source="images/helpScreen/rules.png" Width="150" Height="30" Canvas.Top="190" Canvas.Left="640" ></Image>
+        <Image Name="helpControls" Visibility="Collapsed" Source="images/helpScreen/controls.png" Width="190" Height="40" Canvas.Top="185" Canvas.Left="80" ></Image>
+        <Image Name="helpLeft" Visibility="Collapsed" Source="images/helpScreen/left.png" Width="40" Height="40" Canvas.Top="230" Canvas.Left="80" ></Image>
+        <Image Name="helpRight" Visibility="Collapsed" Source="images/helpScreen/right.png" Width="40" Height="40" Canvas.Top="275" Canvas.Left="80"  ></Image>
+        <Image Name="helpSpace" Visibility="Collapsed" Source="images/helpScreen/space.jpg" Width="150" Height="30" Canvas.Top="320" Canvas.Left="80"  ></Image>
+        <Label Name="helpControlsText" Visibility="Collapsed" Content="-Turn left. &#xA;&#xA;-Turn right." FontFamily="cambria" Canvas.Top="233" Canvas.Left="120" FontSize="20" Height="157" Width="250" ></Label>
+        <Label Name="helpControlsText1" Visibility="Collapsed" Content="-Start the run." FontSize="20" Canvas.Top="315" Canvas.Left="230"></Label>
+        <Label Name="helpRulesText" Visibility="Collapsed" Content=" Ski your way down the mountain while &#10; clearing as many gates as you can. You win &#10; 5 points for every gate cleared. Bonus points &#10; are awarded for extra accuracy as follows: " 
+               FontSize="20" FontFamily="cambria" Width="436" Height="250" Canvas.Left="530" Canvas.Top="230"></Label>
+        <Image Name="helpPerfect" Visibility="Collapsed" Canvas.Top="320" Canvas.Left="540" Source="images/gamePlay/perfect.png" Width="120" Height="60"></Image>
+        <Image Name="helpGood" Visibility="Collapsed" Canvas.Top="320" Canvas.Left="685" Source="images/gamePlay/good.png" Width="80" Height="60"></Image>
+        <Image Name="helpFair" Visibility="Collapsed" Canvas.Top="320" Canvas.Left="795" Source="images/gamePlay/fair.png" Width="80" Height="60"></Image>
+        <Label Name="helpPts" Visibility="Collapsed" Content="2pts                 1pt              0pts" FontWeight="Bold" Foreground="OrangeRed" FontSize="20" Width="300" Height="50" Canvas.Top="355" Canvas.Left="570"></Label>
+        <Image Name="helpGameModes" Visibility="Collapsed" Source="images/helpScreen/gameModes.png" Width="225" Height="40" Canvas.Top="410" Canvas.Left="370" ></Image>
+
+        <Label Name="helpSlalom" Visibility="Collapsed" Content="Slalom" Foreground="Brown" FontWeight="Bold" FontSize="22" Width="100" Height="50" Canvas.Top="470" Canvas.Left="180"></Label>
+        <Label Name="helpSlalomText" Visibility="Collapsed" Content="The gates are narrowly spaced apart.&#10;It requires quick turning so your skis will&#10;have less grip."  FontSize="20" Width="455" Height="137" Canvas.Top="500" Canvas.Left="60" FontFamily="cambria"></Label>
+        <Label Name="helpGiantSlalom" Visibility="Collapsed" Content="Giant Slalom" Foreground="DimGray" FontWeight="Bold" FontSize="22" Width="143" Height="50" Canvas.Top="470" Canvas.Left="650"></Label>
+        <Label Name="helpGiantSlalomText" Visibility="Collapsed" Content="The gates are spaced further apart.&#10;It requires wide, sharp turning so your&#10;skis will have more grip."  FontSize="20" Width="455" Height="137" Canvas.Top="500" Canvas.Left="560" FontFamily="cambria"></Label>
+
+    </Canvas>
+</Window>
