@@ -1,4 +1,4 @@
-# Ski-Penguin
+# Ski Penguin
 
 Game written in C#
 
