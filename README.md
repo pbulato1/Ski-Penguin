@@ -31,9 +31,9 @@ The user controls a penguin skiing down the slope containing 50 gates. The goal 
 
 **Controls:**
 
-<-  : move left
+<-  : turn left
 
-->  : move right
+->  : turn right
 
 spacebar : start the run
 
