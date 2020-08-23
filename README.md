@@ -18,7 +18,7 @@ Ski Penguin is an arcade/skiing simulation game. Ski your way down the mountain 
 1. Play
 - Starts the game.
 2. Help
-- Pressing this option leads to the screen explaining all of the game's rules and controls.
+- Leads to the screen explaining all of the game's rules and controls.
 3. Exit
 - Quits the game.
 
