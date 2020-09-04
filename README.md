@@ -24,7 +24,7 @@ Ski Penguin is an arcade/skiing simulation game. Ski your way down the mountain 
 
 **Gameplay:**
 
-The user controls a penguin skiing down the slope containing 50 gates. The goal is to clear as many gates as possible. Also, bonus points are awarded depending on the accuracy of your turns.
+The user controls a penguin skiing down the slope containing 50 randomly placed gates. The goal is to clear as many gates as possible. Also, bonus points are awarded depending on the accuracy of your turns.
 
 ![](SkiPenguin.gif)
 
