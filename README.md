@@ -40,7 +40,7 @@ spacebar : start the run
 -----------------------------
 Petar Bulatovic
 
-[Video Demo](https://www.youtube.com/watch?v=a2c6sNgUpmc&t=2s)</br>
+[Video Demo](https://youtu.be/a2c6sNgUpmc)</br>
 Download Link: [Link](https://mega.nz/file/mCgHCCbC#umxSJRM6S-48BUh10N-0b_V9aWFRZG4xBaBPnUGdoLU)(Windows only)
 
 
