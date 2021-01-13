@@ -4,7 +4,7 @@ Game written in C#
 
 
 
-                                                 Project completed during August 2020.
+                                                 Project completed during August 2019.
                                                         Uploaded on August 14.
 
 
