@@ -133,7 +133,6 @@
   <ItemGroup>
     <Resource Include="images\colorScreen\b.png" />
     <Resource Include="images\colorScreen\g.png" />
-    <Resource Include="images\colorScreen\backgroundz.jpg" />
     <Resource Include="images\colorScreen\penguinBrush.png" />
     <Resource Include="images\colorScreen\r.png" />
     <Resource Include="images\colorScreen\text.png" />
@@ -360,6 +359,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\gamePlay\topTreeline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\colorScreen\backgroundz.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
